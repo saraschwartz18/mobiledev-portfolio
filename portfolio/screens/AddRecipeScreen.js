@@ -2,31 +2,41 @@ import React, { useState } from "react"
 import { View, Text, TextInput, Button, StyleSheet } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 
+//handles adding a new recipe
 const AddRecipeScreen = ({ route }) => {
   const navigation = useNavigation()
 
-  // Declare state variables for the recipe title, description and instructions and category
+  // declare state variables for the recipe title, description and instructions and category
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [instructions, setInstructions] = useState("")
   const [foodCategory, setCategory] = useState("")
 
-  // Function to handle adding a new recipe
   const handleAddRecipePress = () => {
-    // Create a new recipe object with the provided data
+    const instructionsArray = instructions.split(",").map((instruction) => instruction.trim());
+    const nonEmptyInstructions = instructionsArray.filter((instruction) => instruction !== "");
+    const instructionsList = nonEmptyInstructions.map((instruction, index) => {
+      return (
+        <Text key={index}>
+          {index + 1}. {instruction}
+        </Text>
+      );
+    });
+    
+    // create a new recipe object with the provided data
     const newRecipe = {
       title: title,
       description: description,
-      instructions: instructions,
-      foodCategory: foodCategory
+      instructions: instructionsList,
+      foodCategory: foodCategory,
     };
-    
-    // Pass the new recipe back to the previous screen via the route parameter
-    route.params.addNewRecipe(newRecipe)
+  
+    // pass the new recipe back to the previous screen via the route parameter
+    route.params.addNewRecipe(newRecipe);
     // Navigate back to the library screen
-    navigation.goBack()
-  }
-
+    navigation.goBack();
+  };
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Add a new recipe:</Text>

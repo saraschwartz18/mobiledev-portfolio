@@ -14,9 +14,9 @@ export default function App() {
     <ThemeProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName='RecipeLibrary'>
-          <Stack.Screen name="RecipeLibrary" component={RecipeLibraryScreen} options={{ headerLeft: null }} />
-          <Stack.Screen name="AddRecipe" component={AddRecipeScreen} options={{ headerLeft: null }} />
-          <Stack.Screen name="RecipeDetail" component={RecipeDetailScreen} options={{ headerLeft: null }}/>
+          <Stack.Screen name="Recipe Library" component={RecipeLibraryScreen} options={{ headerLeft: null }} />
+          <Stack.Screen name="Add New Recipe" component={AddRecipeScreen} options={{ headerLeft: null }} />
+          <Stack.Screen name="Recipe Details" component={RecipeDetailScreen} options={{ headerLeft: null }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

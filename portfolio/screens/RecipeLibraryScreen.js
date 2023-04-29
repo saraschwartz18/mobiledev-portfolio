@@ -20,49 +20,67 @@ const RecipeLibraryScreen = () => {
 
   const [recipes, setRecipes] = useState([
     {
-        id: 1,
-        title: "Rigatoni Alla Vodka",
-        foodCategory: "Italian",
-        description: "Rigatoni noodles covered in a creamy tomato sauce with a hint of vodka for added kick and topped with fresh parmigiano reggiano.",
-        instructions: ["Add salt to water and bring to boil.", 
-        "Add rigatoni to boiling water and cook until al dente.", 
+      //set array for preset library
+      id: 1,
+      title: "Rigatoni Alla Vodka",
+      foodCategory: "Italian",
+      description:
+        "Rigatoni noodles covered in a creamy tomato sauce with a hint of vodka for added kick and topped with fresh parmigiano reggiano.",
+      instructions: [
+        "Add salt to water and bring to boil.",
+        "Add rigatoni to boiling water and cook until al dente.",
         "Blend crushed tomato, 1 tbsp of vodka and 1 cup heavy cream together and simmer.",
-         "Mix pasta and sauce together and top with fresh parmigiano reggiano."],
-      },
+        "Mix pasta and sauce together and top with fresh parmigiano reggiano.",
+      ],
+    },
     {
       id: 2,
       title: "Deluxe BLT",
       foodCategory: "American",
-      description: "A tasty sandwich with the classic bacon, lettuce tomato. ",
-      instructions:
-        "1. Bread chicken and fry in a pan. 2. Cover with marinara sauce and cheese. 3. Bake in oven. 4. Serve with pasta.",
+      description: "A tasty sandwich with the classic bacon, lettuce and tomato. Smeared with house sauce and served with fries. ",
+      instructions: [
+        "Toast two slices of brioche bread and wash 2 slices of lettuce.",
+        "Cook bacon and then roast your tomatoes.",
+        "Slice potatoes, cover with seasoning of choice and airfry at 375 degrees for 15 min.",
+        "Assemble sandwich with the bacon, tomato, lettuce and house sauce in between the two slices of bread.",
+        "Serve with fries and enjoy."
+      ],
     },
     {
       id: 3,
-      title: "Tacos",
+      title: "Chipotle Chicken Tacos",
       foodCategory: "Mexican",
       description:
-        "A classic Mexican dish with meat and vegetables wrapped in a tortilla",
-      instructions:
-        "1. Cook the meat with vegetables. 2. Warm up the tortillas. 3. Serve with toppings.",
+        "Three handheld tacos with chicken, cilantro, pico de gallo, and queso blanco. ",
+        instructions: [
+          "Toast three tortillas of your choice until lightly golden.",
+          "Season and cook chicken until 165 degrees fully cooked.",
+          "Cut cilantro into tiny pieces, prepare pico de gallo and shred cheese if needed.",
+          "Lay out each tortilla and layer chicken, cilantro, pico and queso to your liking.",
+        ],
     },
     {
       id: 4,
-      title: "Sushi",
+      title: "Spicy Chicken Omusubi",
       foodCategory: "Japanese",
       description:
-        "A Japanese dish made with vinegar rice and seafood or vegetables",
-      instructions:
-        "1. Cook the rice and mix with vinegar. 2. Cut the fish or vegetables. 3. Roll the sushi.",
+        "Spicy chicken mix surrounded in a sushi rice ball that's wrapped in nori.",
+        instructions: [
+          "Shred seasoned chicken with whatever you would like to season it with.",
+          "Prepare sushi rice with sushi rice and vinegar.",
+          "Get nori wrap ready.",
+          "Create a triangular shape of rice and put shredded chicken in the middle.",
+          "Cover with rice to patch the section and form rice into triangle again if needed.",
+          "Wrap each side and underneath in nori and add sauce to enjoy."
+        ],
     },
   ])
 
   useEffect(() => {
-    // Load recipes from AsyncStorage on component mount
+    // loads recipes from AsyncStorage on component
     loadRecipes()
   }, [])
 
-  
   const loadRecipes = async () => {
     try {
       const storedRecipes = await AsyncStorage.getItem("@recipes")
@@ -82,6 +100,7 @@ const RecipeLibraryScreen = () => {
     }
   }
 
+  // sorts recipes by a-z or z-a alphabetically
   const handleSortPress = () => {
     if (sortType === "default") {
       sortRecipes("foodCategory")
@@ -92,13 +111,15 @@ const RecipeLibraryScreen = () => {
     }
   }
 
+  //takes you to add new recipe handles button press
   const handleAddRecipePress = () => {
-    navigation.navigate("AddRecipe", { addNewRecipe })
+    navigation.navigate("Add New Recipe", { addNewRecipe })
     setSortType("default")
   }
 
+  //takes you to recipe details handles button press
   const handleViewRecipePress = (recipe) => {
-    navigation.navigate("RecipeDetail", { recipe })
+    navigation.navigate("Recipe Details", { recipe })
   }
 
   const addNewRecipe = (newRecipe) => {
@@ -131,18 +152,17 @@ const RecipeLibraryScreen = () => {
     )
   }
 
+  //renders content onto screen using card element 
   const renderItem = ({ item }) => (
     <Card containerStyle={styles.card}>
       <Card.Title style={styles.cardTitle}>{item.title}</Card.Title>
       <Card.Divider />
       <View style={styles.cardContent}>
-        <Text style={styles.cardText}>
-          Cuisine Category: {item.foodCategory}
-        </Text>
+        <Text style={styles.boldText}>Cuisine Category:</Text>
+        <Text style={styles.cardText}> {item.foodCategory}</Text>
         <Card.Divider />
-        <Text style={styles.cardText}>
-          Recipe Description: {item.description}
-        </Text>
+        <Text style={styles.boldText}>Recipe Description:</Text>{" "}
+        <Text style={styles.cardText}> {item.description}</Text>
         <Card.Divider />
         <View style={styles.buttonContainer}>
           <Button
@@ -165,7 +185,7 @@ const RecipeLibraryScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Recipe Library</Text>
+        <Text style={styles.title}>My Recipe Library</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.sortButton}>
             <Button
@@ -217,7 +237,7 @@ const styles = StyleSheet.create({
   listContent: {
     paddingVertical: 10,
     paddingHorizontal: 10,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   card: {
     borderRadius: 10,
@@ -233,7 +253,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
   },
   cardContent: {
@@ -270,7 +290,10 @@ const styles = StyleSheet.create({
   addRecipeButton: {
     marginLeft: 5,
   },
-    
+  boldText: {
+    fontWeight: "bold",
+    fontSize: 15,
+  },
 })
 
 export default RecipeLibraryScreen
