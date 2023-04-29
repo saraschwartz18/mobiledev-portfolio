@@ -21,7 +21,15 @@ const RecipeDetailScreen = () => {
         <Card.Divider style={styles.cardDivider} />
         <Text style={styles.cardDescription}>{recipe.description}</Text>
         <Card.Divider style={styles.cardDivider} />
-        <Text style={styles.cardInstructions}>{recipe.instructions}</Text>
+        <View style={styles.instructionsContainer}>
+          <Text style={{ fontWeight: 'bold' }}>Instructions:</Text>
+          {recipe.instructions.map((instruction, index) => (
+            <View key={index} style={{ flexDirection: 'row' }}>
+              <Text style={{ fontWeight: 'bold' }}>{index + 1}. </Text>
+              <Text style={styles.cardInstructions}>{instruction}</Text>
+            </View>
+          ))}
+        </View>
       </Card>
       <Button title="Return to Library" onPress={handleGoBackPress} color="#92B3AB" />
     </View>
@@ -50,7 +58,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#D9E5D6",
     borderWidth: 1,
     borderColor: 'lightgray',
-
   },
   cardTitle: {
     fontSize: 20,
@@ -69,14 +76,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   cardInstructions: {
-    textAlign: 'justify',
+    textAlign: 'center',
     color: '#100007',
     lineHeight: 20,
-    textAlign: 'center',
   },
   cardDivider: {
     backgroundColor: '#DCDCDC',
     marginVertical: 10,
+  },
+  instructionsContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

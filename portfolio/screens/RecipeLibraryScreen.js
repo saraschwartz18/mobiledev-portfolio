@@ -20,13 +20,15 @@ const RecipeLibraryScreen = () => {
 
   const [recipes, setRecipes] = useState([
     {
-      id: 1,
-      title: "Spaghetti and Meatballs",
-      foodCategory: "Italian",
-      description: "A classic Italian dish with pasta and meatballs",
-      instructions:
-        "1. Boil water and cook spaghetti. 2. Make meatballs and cook in a pan. 3. Serve with sauce on top.",
-    },
+        id: 1,
+        title: "Rigatoni Alla Vodka",
+        foodCategory: "Italian",
+        description: "Rigatoni noodles covered in a creamy tomato sauce with a hint of vodka for added kick and topped with fresh parmigiano reggiano.",
+        instructions: ["Add salt to water and bring to boil.", 
+        "Add rigatoni to boiling water and cook until al dente.", 
+        "Blend crushed tomato, 1 tbsp of vodka and 1 cup heavy cream together and simmer.",
+         "Mix pasta and sauce together and top with fresh parmigiano reggiano."],
+      },
     {
       id: 2,
       title: "Deluxe BLT",
@@ -60,6 +62,7 @@ const RecipeLibraryScreen = () => {
     loadRecipes()
   }, [])
 
+  
   const loadRecipes = async () => {
     try {
       const storedRecipes = await AsyncStorage.getItem("@recipes")
@@ -214,6 +217,7 @@ const styles = StyleSheet.create({
   listContent: {
     paddingVertical: 10,
     paddingHorizontal: 10,
+    fontWeight: "bold"
   },
   card: {
     borderRadius: 10,
