@@ -8,7 +8,7 @@ Personal email: sarax14330@gmail.com
 
 This is a simple recipe library app that uses react native elements and navigation. The user will be able to access a preset library of recipes with the ability to add their own. While scrolling through the recipe cards and having the option to view each recipe's details the user can also delete the recipe if they no longer wish to have it in the library. In the top right corner the user is able to sort their recipes alphabetically and also access the screen where they can add their own new recipe. 
 
-Here is access to the app's github pages: https://saraschwartz18.github.io/mobiledev-portfolio/
+Here is access to the apps github pages: https://saraschwartz18.github.io/mobiledev-portfolio/
 
 Examples of the app on Web:
 <img width="1440" alt="Recipe Library Screen on Web" src="https://user-images.githubusercontent.com/111756988/235329799-6f9c3607-c49e-4183-b756-ac59bce3a9b2.png">
