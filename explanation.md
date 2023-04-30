@@ -2,6 +2,9 @@ Sara Schwartz / DIG 4639C / Final Portfolio
 
 Option 2
 
+Repo: https://github.com/saraschwartz18/mobiledev-portfolio
+GH Pages: https://saraschwartz18.github.io/mobiledev-portfolio/
+
 Components:
 
 'App.Js'
