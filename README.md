@@ -11,6 +11,8 @@ This is a simple recipe library app that uses react native elements and navigati
 
 Here is access to the apps github pages: https://saraschwartz18.github.io/mobiledev-portfolio/
 
+Repo Link: https://github.com/saraschwartz18/mobiledev-portfolio
+
 Examples of the app on Web:
 <img width="1440" alt="Recipe Library Screen on Web" src="https://user-images.githubusercontent.com/111756988/235329799-6f9c3607-c49e-4183-b756-ac59bce3a9b2.png">
 <img width="1440" alt="Recipe Detail Screen on Web" src="https://user-images.githubusercontent.com/111756988/235329802-d73e0e15-ab7d-468c-a213-d96cb0a654f9.png">
