@@ -17,6 +17,7 @@ Examples of the app on Web:
 
 
 Examples of the app on mobile:
+
 <img width="196" alt="Screenshot 2023-04-29 at 8 30 25 PM" src="https://user-images.githubusercontent.com/111756988/235329806-380b824a-3b78-490b-9407-593e4808f10a.png">
 <img width="196" alt="Screenshot 2023-04-29 at 8 30 54 PM" src="https://user-images.githubusercontent.com/111756988/235329808-1d1181e7-dd62-4113-9213-c24eb4cecff2.png">
 <img width="196" alt="Screenshot 2023-04-29 at 8 30 25 PM" src="https://user-images.githubusercontent.com/111756988/235329810-763ac2f0-bf58-4f5c-acf2-3143ee89b66d.png">
